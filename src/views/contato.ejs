@@ -18,20 +18,20 @@
       <% } %>
         <input type="hidden" name="_csrf" value=<%= csrfToken %>>
         <div class="form-group">
-          <label>Nome</label>
-          <input value="<%= contato.nome %>" type="text" class="form-control" name="nome">
+          <label>Nome:</label>
+          <input value="<%= contato.nome %>" type="text" placeholder="EX.: josé." class="form-control" name="nome">
         </div>
         <div class="form-group">
-          <label>Sobrenome</label>
-          <input value="<%= contato.sobrenome %>" type="text" class="form-control" name="sobrenome">
+          <label>Sobrenome:</label>
+          <input value="<%= contato.sobrenome %>" type="text" placeholder="EX.: Silva." class="form-control" name="sobrenome">
         </div>
         <div class="form-group">
-          <label>Email</label>
-          <input value="<%= contato.email %>" type="email" class="form-control" name="email">
+          <label>Email:</label>
+          <input value="<%= contato.email %>" type="email" placeholder="EX.: josé@gmail.com" class="form-control" name="email">
         </div>
         <div class="form-group">
-          <label>Telefone</label>
-          <input value="<%= contato.telefone %>" type="tel" class="form-control" name="telefone">
+          <label>Telefone:</label>
+          <input value="<%= contato.telefone %>" type="tel" placeholder="EX.: (00) 0000-0000" class="form-control" name="telefone">
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
         <a type="button" href="/" class="btn btn-danger">Voltar</a>
