@@ -37,31 +37,31 @@ class Login {
     this.valida();
     if(this.errors.length > 0) return;
 
-    await this.userExists()
+    await this.userExists();
 
     if(this.errors.length > 0) return;
 
     const salt = bcryptjs.genSaltSync();
-    this.body.password = bcryptjs.hashSync(this.body.password, salt)
+    this.body.password = bcryptjs.hashSync(this.body.password, salt);
 
-  
     this.user = await LoginModel.create(this.body);
   }
 
-  async userExists(){
-    const user = await LoginModel.findOne({ email: this.body.email });
-    if(user) this.errors.push('Usuário já existe.')
+  async userExists() {
+    this.user = await LoginModel.findOne({ email: this.body.email });
+    if(this.user) this.errors.push('Usuário já existe.');
   }
 
   valida() {
     this.cleanUp();
+
     // Validação
-    // O email precisa ser válido;
+    // O e-mail precisa ser válido
     if(!validator.isEmail(this.body.email)) this.errors.push('E-mail inválido');
 
-    // A senha precisa ter entre 6 a 20 caracteres
-    if(this.body.password.length < 3 || this.body.password.length > 20) {
-      this.errors.push('A senha precisa ter entre 3 a 20 caracteres')
+    // A senha precisa ter entre 3 e 50
+    if(this.body.password.length < 3 || this.body.password.length > 50) {
+      this.errors.push('A senha precisa ter entre 3 e 50 caracteres.');
     }
   }
 
